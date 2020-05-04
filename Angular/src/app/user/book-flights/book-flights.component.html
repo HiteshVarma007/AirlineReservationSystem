@@ -1,0 +1,157 @@
+
+<div class="row" style="background-image: linear-gradient(to top, #ffffff, #e4e4e6, #c9cacf, #aeb1b7, #9399a0,
+#818991, #6f7a83, #5d6b74, #50606b, #435462, #374959, #2c3e50); background-size: cover; height: 1300px;">
+
+
+
+    <div class="offset-lg-3 offset-md-3 col-lg-6 col-md-6">
+        <br><br>
+        <h3>Filter based on:</h3>
+        <p><b>From City:&nbsp;&nbsp;</b> <select type="text" id="fromCity" [(ngModel)]="from"
+                placeholder="From City" >
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Chennai">Chennai</option>    
+          </select>
+                &nbsp;&nbsp;
+            <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To City:&nbsp;&nbsp;</b> <select type="text" id="toCity" [(ngModel)]="to"
+                placeholder="To City" >
+                      <option value="Chandigarh">Chandigarh</option>
+                      <option value="Delhi">Delhi</option>
+                      <option value="Hyderabad">Hyderabad</option>
+                      <option value="Kolkata">Kolkata</option>
+                      <option value="Mumbai">Mumbai</option>
+                      <option value="Chennai">Chennai</option>    
+                </select>
+                &nbsp;&nbsp;</p>
+        <button class="btn btn-success" type="submit" (click)=searchFlight()>Search</button>
+    <br><br>
+  
+    
+          <div *ngIf="f"> 
+
+            <h3><br><br>Flight Datails:</h3>
+              <div class="col-lg-12 col-md-12" id="rcorners1" style="text-align: center;">
+                
+                <div class="row">
+                    <div class="col-3">
+
+                    </div>
+                    <p style="font-size: x-large;"><b>From:</b></p>&nbsp;<p style="font-size: x-large;">{{flight.from}}
+                    </p>
+                    <pre>       </pre>
+                    <p style="font-size: x-large;"><b>To:</b></p>&nbsp;<p style="font-size: x-large;">{{flight.to}}</p>
+                    <pre>       </pre>
+                    <p style="font-size: x-large;"><b>Fare:</b></p>&nbsp;<p style="font-size: x-large;">{{flight.fare}}
+                    </p>
+                </div>
+                <div class="row">
+                    <img src="../assets/images/l2.png" height="100px" width="120px"/>                    
+                    <pre>         </pre>
+                    <p style="font-size: x-large;"><b>Departure</b>&nbsp;<b>Time:</b></p>&nbsp;<p
+                        style="font-size: x-large;">{{flight.timeD}}</p>
+                    <pre>       </pre>
+                    <p style="font-size: x-large;"><b>Seats Available:</b></p>&nbsp;<p style="font-size: x-large;">
+                        {{flight.availableSeats}}</p>
+                </div>
+                
+                <button class="btn btn-success" type="submit" (click)=bookFlight() style="font-size: large; color: white;">Enter further
+                    details:</button>
+            
+              </div>
+          </div>
+        <div id="rcorners1" *ngIf="addPass" style="text-align: center;">
+  
+          <form [formGroup]="addForm" (ngSubmit)="addPassenger()">
+    
+              <h2>Passenger Details</h2>
+      
+              <div class="form-group">
+                <div class="form-group row">
+                  <div class="col-1"></div>
+                  <label for="firstName" >
+                    <b>First Name:</b>
+                  </label>
+                  <div class="col-lg-8">
+                    <input type="text" class="form-control" formControlName="firstName" autofocus/>
+                    <div *ngIf="submitted && addForm.controls.firstName.errors">
+                      <div *ngIf="submitted && addForm.controls.firstName.errors.required" class="text-danger">
+                        First Name is required...
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-1"></div>
+                  <label for="lastName" >
+                    <b>Last Name:</b>
+                  </label>
+                  <div class="col-lg-8">
+                    <input type="text" class="form-control" formControlName="lastName" />
+                    <div *ngIf="submitted && addForm.controls.lastName.errors">
+                      <div *ngIf="submitted && addForm.controls.lastName.errors.required" class="text-danger">
+                        Last Name is required...
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="form-group row">
+                  <div class="col-1"></div>
+                  <label for="age" >
+                    &nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;
+                    <b>Age:</b>
+                  </label>
+                  <div class="col-lg-8">
+                    <input type="number" class="form-control" formControlName="age" />
+                    <div *ngIf="submitted && addForm.controls.age.errors">
+                      <div *ngIf="submitted && addForm.controls.age.errors.required" class="text-danger">
+                        Age is required...
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="form-group row">
+                  <div class="col-1"></div>
+                  <label for="gender" >
+                    &nbsp;&nbsp;&nbsp;
+                    <b>Gender :</b>
+                  </label>
+                  <div class="col-lg-8">
+                    <select id="gender" class="form-control" formControlName="gender">
+                      <option value="M">Male</option>
+                      <option value="F">Female</option>
+                      <option value="O">Others</option>
+      
+                    </select>
+                    <div *ngIf="submitted && addForm.controls.gender.errors">
+                      <div *ngIf="submitted && addForm.controls.gender.errors.required" class="text-danger">
+                        Gender is required...
+                      </div>
+                    </div>
+      
+      
+                  </div>
+                </div>
+      
+                <button class="btn btn-success" type="submit">Add
+                  Passenger</button>
+      
+      
+              </div>
+            
+      
+          </form>
+      
+        </div>
+    
+    </div>
+  
+    
+  </div>

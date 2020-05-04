@@ -1,0 +1,18 @@
+{
+  "flights": [
+    {
+      "id": 1,
+      "fromCity": "Chandigarh",
+      "toCity": "Delhi",
+      "time": "22:00",
+      "price": "5000"
+    },
+    {
+      "id": 2,
+      "fromCity": "Chandigarh",
+      "toCity": "Mumbai",
+      "time": "07:30",
+      "price": "3000"
+    }
+    ]
+}

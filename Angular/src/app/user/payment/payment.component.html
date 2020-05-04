@@ -1,0 +1,109 @@
+<style>
+    .box{
+        backface-visibility: hidden;
+        position: relative;
+        padding: 50px;
+        background:  rgba(252, 252, 252, 0.274);
+        box-shadow: 0 5px 15px rgba(0,0,0,.2);
+    }
+  </style>
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+      <div class="jumbotron" style="background-image: linear-gradient(to top, #ffffff, #e4e4e6, #c9cacf, #aeb1b7, #9399a0,
+      #818991, #6f7a83, #5d6b74, #50606b, #435462, #374959, #2c3e50); background-size: cover; height: 800px;">
+        <div class="offset-lg-3 offset-md-3 col-lg-6 col-md-6">
+            <div class="box" style="text-align: center;">
+                <div class="creditCardForm">
+                    <div class="heading">
+                        <h1>Payment Details</h1>
+                    </div>
+                    <div class="payment">
+                        <form [formGroup] = "payForm">
+                            <div class="row">
+                                <div class="col-2"></div>
+                                <div class="col-8">
+                                <div class="form-group owner">
+                                <label for="owner">Owner</label>
+                                <input type="text" class="form-control" id="owner" formControlName="owner">
+                                <div class="text-danger" *ngIf="submitted && payForm.controls.owner.errors && payForm.controls.owner.errors.required">
+                                    This field is required..
+                                </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2"></div>
+                            <div class="col-5">
+                                <div class="form-group" id="card-number-field">
+                                <label for="cardNumber">Card Number</label>
+                                <input type="text" class="form-control" id="cardNumber" formControlName="cardNumber">
+                                <div *ngIf="submitted && payForm.controls.cardNumber.errors"> 
+                                    <div class="text-danger" *ngIf="payForm.controls.cardNumber.errors.required">
+                                        Card Number is required..
+                                    </div>
+                                    <div class="text-danger" *ngIf="payForm.controls.cardNumber.errors.pattern">
+                                        Card Number must contain 16 digits..
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-1"></div>
+                            <div class="col-2">
+                                <div class="form-group CVV">
+                                <label for="cvv">CVV</label>
+                                <input type="text" class="form-control" id="cvv" formControlName="cvv">
+                                <div *ngIf="submitted && payForm.controls.cvv.errors"> 
+                                    <div class="text-danger" *ngIf="payForm.controls.cvv.errors.required">
+                                        CVV is required
+                                    </div>
+                                    <div class="text-danger" *ngIf="payForm.controls.cvv.errors.pattern">
+                                        CVV has 3 digits
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="form-group" id="expiration-date" >
+                                <br>
+                                <label>Expiration Date:&nbsp;</label>
+                                <select >
+                                    <option value="01">January</option>
+                                    <option value="02">February </option>
+                                    <option value="03">March</option>
+                                    <option value="04">April</option>
+                                    <option value="05">May</option>
+                                    <option value="06">June</option>
+                                    <option value="07">July</option>
+                                    <option value="08">August</option>
+                                    <option value="09">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                                &nbsp;&nbsp;
+                                <select >
+                                    <option value="16"> 2016</option>
+                                    <option value="17"> 2017</option>
+                                    <option value="18"> 2018</option>
+                                    <option value="19"> 2019</option>
+                                    <option value="20"> 2020</option>
+                                    <option value="21"> 2021</option>
+                                </select>
+                             
+                            </div>
+                            <div class="form-group" id="credit_cards">
+                                
+                            </div>
+                            <div class="form-group" id="pay-now">
+                                <button type="submit" class="btn btn-success" id="confirm-purchase" (click)="bookFlight()">Confirm</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+      </div>
+    </div>
+</div>

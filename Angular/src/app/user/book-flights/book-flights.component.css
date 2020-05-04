@@ -1,0 +1,25 @@
+#rcorners1 {
+    border-radius: 25px;
+    background: rgba(252, 252, 252, 0.541);
+    background-size: cover;
+    padding: 20px;
+}
+input[type=text] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+    text-align: center;
+}
+
+input[type=number] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+    text-align: center;
+}
+select{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+    text-align: center;
+}
