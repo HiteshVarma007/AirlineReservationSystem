@@ -239,8 +239,7 @@ export class BookFlightsComponent implements OnInit {
       });
     }
     else {
-          alert("Else part");
-          this.router.navigate(['/payment']);
+        alert("Redirecting to payment page");
     }
 
   }
@@ -302,7 +301,7 @@ export class BookFlightsComponent implements OnInit {
 
     this.gender = this.addForm.controls.gender.value;
 
-    this.router.navigate(['/payment', this.flight.flightId, this.name, this.age, this.gender]);
+    this.router.navigate(['/user/payment', this.flight.flightId, this.name, this.age, this.gender]);
 
   }
 

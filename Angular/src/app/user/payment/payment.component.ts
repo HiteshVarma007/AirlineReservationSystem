@@ -72,7 +72,7 @@ export class PaymentComponent implements OnInit {
      
       });
       
-      this.router.navigate(['/my-bookings/'+localStorage.userId]);
+      this.router.navigate(['/user/my-bookings/'+localStorage.userId]);
   
   }
 

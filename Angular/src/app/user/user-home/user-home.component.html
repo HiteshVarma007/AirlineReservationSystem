@@ -43,7 +43,7 @@
       <div  class="offset-lg-1 offset-md-1 col-lg-10 col-md-10">
         <div class="box">
           <div class="jumbotron" style="background-color: transparent;">
-            <p style="font-size: 50px;">Hello {{user.name}}</p>
+            <p style="font-size: 50px;">Hello {{this.user.name}}</p>
             <h4 style="font-size:35px;">Welcome to {{title}}</h4>
             <p style="font-size:20px;">Here you can book flights, review bookings and can also cancel bookings.</p>
             <p style="font-size:30px;">To book, check bookings or cancel select an option below</p>
@@ -51,11 +51,11 @@
               &nbsp;&nbsp;
               &nbsp;&nbsp;
               <div class="row">
-                <a href="book" class="btn btn-success" style="color: white;">Book Flights</a>&nbsp;&nbsp;
-                <a href="my-bookings/{{this.userId}}" class="btn btn-warning" style="color: white;">View/Cancel Bookings</a>&nbsp;&nbsp;
+                <a href="/user/book" class="btn btn-success" style="color: white;">Book Flights</a>&nbsp;&nbsp;
+                <button class="btn btn-warning" style="color: white;" (click)=myBooking()>View/Cancel Bookings</button>&nbsp;&nbsp;
                 <pre>                                                                     </pre>
                 <pre>                                                                     </pre>
-            <a href="" class="btn btn-danger" style="color: white;" >Logout</a>
+            <a href="main" class="btn btn-danger" style="color: white;" >Logout</a>
           </div>
         </div>
       </div>

@@ -1,0 +1,239 @@
+<style>
+  .box{
+      backface-visibility: hidden;
+      position: relative;
+      padding: 50px;
+      background:  rgba(252, 252, 252, 0.274);
+      box-shadow: 0 5px 15px rgba(0,0,0,.2);
+  }
+</style>
+<head>
+	<meta charset="utf-8">
+
+	<!-- Main Style Css -->
+	<style>
+        .hideme
+        {
+            display:none;
+            visibility:hidden;
+            
+        }
+        .showme
+        {
+            display:inline;
+            visibility:visible;
+        }
+        .link
+        {
+            background: none!important;
+            border: none;
+            padding: 0!important;
+            /*optional*/
+            font-family: arial, sans-serif;
+            /*input has OS specific font-family*/
+            color: #069;
+            text-decoration: underline;
+            cursor: pointer;
+        
+        }
+
+
+    input[type=text] {
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #000000;
+    }
+    input[type=number] {
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #000000;
+    }
+    input[type=password] {
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #000000;
+    }
+
+
+        </style>
+</head>
+<div style="background-image: linear-gradient(to top, #ffffff, #e4e4e6, #c9cacf, #aeb1b7, #9399a0,
+#818991, #6f7a83, #5d6b74, #50606b, #435462, #374959, #2c3e50); height: 685px;">
+    <div style=" text-align: center;">
+      <div class="offset-lg-3 offset-md-3 col-lg-6 col-md-6">
+        <div class="box" >
+            <div style="text-align: center;"><h1>{{message}}</h1></div>
+        <div>
+            <p style = "font-family:georgia,garamond,serif;font-size:60px;" >Sign Up</p>
+        </div>
+        <!--<form [formGroup]="addForm" (ngSubmit)="addUser()">
+            
+            <br>
+            <div class="form-group row">
+                <label for="username"><b>Username:</b></label><h4 style="color: red;">*</h4>
+                <input type="text" class="form-control" required pattern="[A-Z a-z]{2,14}" formControlName="username" autofocus>   
+                    <div *ngIf="submitted && addForm.controls.username.errors">
+                    <div *ngIf="addForm.controls.username.errors.required" class="text-danger">
+                        UserName is required...
+                    </div>
+                    <div *ngIf="addForm.controls.userName.errors.pattern" class="text-danger">
+                        User Name must contain letters only..!
+                    </div>
+                    </div>
+    
+            </div>
+            <div class="form-group row">
+                <label for="email"><b>e-mail:</b></label><h4 style="color: red;">*</h4>
+                <input type="text" class="form-control" formControlName="email" autofocus>
+                <div *ngIf="submitted && addForm.controls.email.errors">
+                    <div *ngIf="addForm.controls.email.errors.required" class="text-danger">
+                        Email is required...
+                    </div>
+                    <div class="text-danger" *ngIf="addForm.controls.email.errors.email" class="text-danger">
+                        Email invalid!!
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="password"><b>Password:</b></label><h4 style="color: red;">*</h4>
+                <input type="password" class="form-control" formControlName="password" autofocus>
+                <div *ngIf="submitted && addForm.controls.password.errors">
+                    <div *ngIf="addForm.controls.password.errors.required" class="text-danger">
+                        Password is required...
+                    </div>
+                    <div class="text-danger" *ngIf="addForm.controls.password.errors.minlength || addForm.controls.password.errors.maxLength ">
+                        Password must be of minimum 8 characters..!
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="form-group row" style="text-align: center;">
+                <pre>                                   </pre>
+                <label for="Name"><b>Name:&nbsp;&nbsp;</b></label>
+                <input class="form-control" type="text" name="name" formControlName="name" id="name" class="input-text" >
+                
+            </div>
+            <br>
+            <div class="form-group row" style="text-align: center;">
+                <pre>                                   </pre>
+                <label for="city"><b>City:&nbsp;&nbsp;</b></label>
+                <input class="form-control" type="text" name="city" formControlName="city" id="city" class="input-text" >
+            </div>
+            <br>
+            <div class="form-group row" style="text-align: center;">
+                <pre>                                </pre>
+                <label for="phoneNum"><b>Mobile:&nbsp;&nbsp;</b></label>
+                <input class="form-control" type="number" name="phoneNum" formControlName="phoneNum" id="phoneNum" class="input-text" >
+                
+            </div>
+            <br>
+            <p style="color: red;">* inputs need to be filled</p>
+
+            <div>
+                <br>
+              <button class="btn btn-success" id="register" type="submit" (click)="register()">Register</button>  
+          </div>
+        </form>-->
+
+
+        <form [formGroup] = "addForm" (ngSubmit)="signUp()">
+            <div class="container">
+              
+          
+              <div class="form-group" >
+                      <label for="name"><b>Name<sup class="text-danger">*</sup></b></label>
+                      <input type="text" class="form-control" placeholder="Enter name" formControlName="name" name="name" >
+                      <div *ngIf="submitted && addForm.controls.name.errors ">
+                          <div class="text-danger" *ngIf="addForm.controls.name.errors.required">
+                            Name is required..
+                          </div>
+                          <div class="text-danger" *ngIf="addForm.controls.name.errors.pattern">
+                            Name should start with Capital letters and contain only alphabets..
+                          </div>
+                      </div>
+                      
+              </div>
+
+                <div class="form-group" >
+                <label for="city"><b>City<sup class="text-danger">*</sup></b></label>
+                <input type="text" class="form-control" placeholder="Enter City" formControlName="city" name="city" >
+                <div *ngIf="submitted && addForm.controls.city.errors ">
+                    <div class="text-danger" *ngIf="addForm.controls.city.errors.required">
+                      City is required..
+                    </div>
+                </div>
+                
+              </div> 
+          
+              <div class="form-group" >
+                  <br>
+                  <label for="email"><b>Email<sup class="text-danger">*</sup></b></label>
+                  <input type="text"  class="form-control" placeholder="Enter email" formControlName="email" name="email" >
+                  <div *ngIf="submitted && addForm.controls.email.errors ">
+                      <div class="text-danger" *ngIf="addForm.controls.email.errors.required">
+                          Email is Required...
+                      </div>
+                      <div class="text-danger" *ngIf="addForm.controls.email.errors.email">
+                          Invalid Email Address...!
+                      </div>
+                  </div>
+              </div>
+          
+          
+              <div class="form-group" >
+                  <br>
+                  <label for="username"><b>Username<sup class="text-danger">*</sup></b></label>
+                  <input type="text" class="form-control" placeholder="Enter Username" name="username" formControlName="username">
+                  <div *ngIf="submitted && addForm.controls.username.errors">
+                      <div class="text-danger" *ngIf="addForm.controls.username.errors.required">
+                        Username is required..
+                      </div>
+                      <div class="text-danger" *ngIf="addForm.controls.username.errors.pattern">
+                        Username must contain atleast 1 lower case, 1 upper case , one special Character and length between 6 to 10
+                      </div>  
+                    </div> 
+                    
+              </div>
+          
+              <div class="form-group" >
+                  <br>
+                  <label for="password"><b>Password<sup class="text-danger">*</sup></b></label>
+                  <input type="password" class="form-control" placeholder="Enter Password" name="psw"  formControlName="password">
+                  <div *ngIf="submitted && addForm.controls.password.errors ">
+                      <div class="text-danger" *ngIf=" addForm.controls.password.errors.required">
+                        Password is required..
+                      </div>
+                      <div class="text-danger" *ngIf="addForm.controls.password.errors.pattern">
+                        Password must contain atleast 1 lower case, 1 upper case and one special Character and must be at least
+                        6 characters and at most 10
+                      </div>
+                    </div>
+                    
+              </div>
+              
+              <div class="form-group" >
+                <br>
+                <label for="phoneNum"><b>Mobile<sup class="text-danger">*</sup></b></label>
+                <input type="number" class="form-control" placeholder="Enter Mobile Number" formControlName="phoneNum"  name="phoneNum" >
+                <div *ngIf="submitted && addForm.controls.phoneNum.errors">
+                    <div class="text-danger" *ngIf="addForm.controls.phoneNum.errors.required">
+                      Phone Number is required..
+                    </div>
+                    <div class="text-danger" *ngIf="addForm.controls.phoneNum.errors.pattern">
+                      Phone number must contain 10 digits and and start digit must be between 6-9..
+                    </div>
+                  </div>
+        
+                </div>
+                <div>
+                    <br>
+                  <button class="btn btn-success" type="submit" >Register</button>  
+              </div>
+
+              </div>
+          </form>
+      
+      
+      </div>
+    </div>
+</div>

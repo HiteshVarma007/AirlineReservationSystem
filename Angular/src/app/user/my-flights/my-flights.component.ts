@@ -11,8 +11,8 @@ import { UserAddService } from '../../services/user-add.service';
 export class MyFlightsComponent implements OnInit {
 
   bookings:Booking[];
-  booked:boolean = true;
-  load:boolean = true;
+  booked:boolean = false;
+  load:boolean = false;
   userId: number;
   
 
@@ -20,9 +20,6 @@ export class MyFlightsComponent implements OnInit {
  
   ngOnInit() {
     
-    this.route.params.subscribe(params=>{
-      this.userId=params['userId'];
-    })
     this.getbookings();
     // if(localStorage.username!=null){
      
@@ -33,10 +30,10 @@ export class MyFlightsComponent implements OnInit {
   }
   getbookings() {
     //localStorage.userId = 1;
-    this.flightService.myBookings(this.userId).subscribe(data => {
+    this.flightService.myBookings(localStorage.userId).subscribe(data => {
       // on resolve or on success
       
-      console.log(this.userId);
+      console.log(localStorage.userId);
       this.bookings=data;
       console.log(this.bookings.length);
       if(this.bookings.length==0)
