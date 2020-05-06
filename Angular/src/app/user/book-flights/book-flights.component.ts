@@ -245,21 +245,7 @@ export class BookFlightsComponent implements OnInit {
   }
 
  
-  selectChangeHandler(event: any) {
-    this.from = event.target.value;
-  }
-
-  selectChangeHandler2(event: any) {
   
-    this.to = event.target.value;
-  
-  }
-
-  selectChangeHandler3(event: any) {
-    
-    this.gender = event.target.value;
-  
-  }
   searchFlight() {
 
     if (this.from == "" || this.to == "") {
@@ -290,18 +276,21 @@ export class BookFlightsComponent implements OnInit {
     if (this.addForm.invalid) {
       return;
     }
-
+    localStorage.from=this.from;
+    localStorage.to=this.to;
     console.log(this.addForm.controls.firstName.value);
-
-    //this.name = this.addForm.controls.firstName.value;
 
     this.name = this.addForm.controls.firstName.value + " " + this.addForm.controls.lastName.value;
 
     this.age = this.addForm.controls.age.value;
 
     this.gender = this.addForm.controls.gender.value;
-
-    this.router.navigate(['/user/payment', this.flight.flightId, this.name, this.age, this.gender]);
+    localStorage.flightId=this.flight.flightId;
+    localStorage.name=this.name;
+    localStorage.age=this.age;
+    localStorage.gender=this.gender;
+    alert("Updated Price is "+this.flight.totalFare);
+    this.router.navigate(['/user/payment']);
 
   }
 

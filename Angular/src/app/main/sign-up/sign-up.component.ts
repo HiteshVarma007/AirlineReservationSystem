@@ -50,35 +50,4 @@ export class SignUpComponent implements OnInit {
     });
   }
 
-
-
-
-
-  /*ngOnInit() {
-    document.getElementById("login");
-
-    this.addForm =this.formBuilder.group({
-      userName:['',[Validators.required, Validators.pattern("[A-Z][a-z A-Z]{2,14}")]],
-      email:['',[Validators.required,Validators.email]],
-      password:['',[Validators.required, Validators.minLength(8),Validators.maxLength(12)]]
-    });
-
-
-  }
-  addUser(){
-    this.submitted=true;
-
-    if(this.addForm.invalid){
-      return;
-    }
-    console.log(this.addForm.value);
-    alert("Added Succesfully");
-    //location.href = '/login';
-  }
-
-
-  public register(){
-    let response=this.service.addUser(this.user);
-    response.subscribe((data)=>this.message=data);
-  }*/
 }

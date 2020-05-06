@@ -1,0 +1,81 @@
+.box{
+    backface-visibility: hidden;
+    position: relative;
+    padding: 50px;
+    background:  rgba(252, 252, 252, 0.274);
+    box-shadow: 0 5px 15px rgba(0,0,0,.2);
+}
+
+#login-box
+{
+  position: relative;
+  margin: 1% auto;
+  height: 400px;
+  width: 600px;
+  background: rgba(252, 252, 252, 0.274);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.left-box
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 40px;
+  width: 300px;
+  height: 400px;    
+}
+
+input[type=text] {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #000000;
+}
+
+input[type=password] {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #000000;
+}
+
+
+
+
+.right-box
+{
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+  padding: 40px;
+  width: 300px;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+}
+
+.or
+{
+  position: absolute;
+  top: 180px;
+  left: 280px;
+  width: 40px;
+  height: 40px;
+  color: wheat;
+  background: #22397a;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  line-height: 40px;
+  text-align: center;
+}
+
+.right-box .signinwith
+{
+  display: block;
+  margin-bottom: 40px;
+  font-size: 28px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}

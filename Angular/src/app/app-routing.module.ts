@@ -32,10 +32,10 @@ const routes: Routes = [
     {path:'book',component:BookFlightsComponent},
     {path:'my-bookings',component:MyFlightsComponent},
     {path:'user-home',component:UserHomeComponent},
-    {path:'payment/:flightId/:name/:age/:gender',component:PaymentComponent},
+    {path:'payment',component:PaymentComponent},
     {path:'**',component:UserHomeComponent}
   ]},
-  {path:'**',component:HomeComponent}
+  {path:'**',component:MainComponent}
 ];
 
 @NgModule({

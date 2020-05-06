@@ -55,33 +55,4 @@ export class LoginComponent implements OnInit {
     });
   }
 
-
-
-  /*ngOnInit() {
-    document.getElementById("login").classList.add("hideme");
-
-      this.addForm = this.formBuilder.group({
-      userName: ['',[Validators.required]],
-      password: ['',[Validators.required]]
-    });
-     
-
-  }
-
-  loginUser(){
-    this.submitted=true;
-
-    if(this.addForm.invalid){
-      return;
-    }
-    console.log(this.addForm.value);
-   /* this.userService.createNewUser(this.addForm.value).subscribe(data=>{alert(`${this.addForm.controls.firstName.value} record
-    is added successfully ..!`);
-    this.router.navigate(['list-user']);},
-    err=>{
-      console.log(err.stack);
-    }
-    location.href='/user-home';
-  }*/
-
 }

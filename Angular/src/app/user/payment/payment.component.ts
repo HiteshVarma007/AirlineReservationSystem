@@ -16,6 +16,9 @@ export class PaymentComponent implements OnInit {
   age:number;
   gender:string;
   payForm : FormGroup;
+  flight: Flight;
+
+  fare: number;
 
   submitted:boolean = false;
   result:boolean;
@@ -23,20 +26,14 @@ export class PaymentComponent implements OnInit {
   constructor(private route:ActivatedRoute,private flightService:UserAddService,private router:Router,private formBuilder:FormBuilder) { }
 
   ngOnInit() {
-
-    this.route.params.subscribe(params=>{
-      this.flightId=params['flightId'];
-    })
-    this.route.params.subscribe(params=>{
-      this.name=params['name'];
-    })
-      this.route.params.subscribe(params=>{
-        this.age=params['age'];
-      })
-        this.route.params.subscribe(params=>{
-          this.gender=params['gender'];
-        })    
+   
         
+    this.flightService.searchFlight(localStorage.from,localStorage.to).subscribe(data=>{
+      this.flight=data;
+    }
+
+    );
+
     this.payForm=this.formBuilder.group({
       
       owner: ['', [Validators.required]],
@@ -56,11 +53,13 @@ export class PaymentComponent implements OnInit {
         return;
       }
     // alert(localStorage.userId);
-      this.flightService.bookFlight(this.flightId,localStorage.userId,this.name,this.age,this.gender).subscribe(data=> {
+      this.flightService.bookFlight(localStorage.flightId,localStorage.userId,localStorage.name,localStorage.age,localStorage.gender)
+      .subscribe(data=> {
 
       this.result = data;
       if(this.result)
       {
+
         // setTimeout(function(){alert("booking Succesful");},3000);
         alert("booking Succesful");
       }
@@ -72,7 +71,7 @@ export class PaymentComponent implements OnInit {
      
       });
       
-      this.router.navigate(['/user/my-bookings/'+localStorage.userId]);
+      this.router.navigate(['/user/my-bookings/']);
   
   }
 
